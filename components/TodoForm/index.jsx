@@ -1,10 +1,23 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import {
+	View,
+	Text,
+	StyleSheet,
+	TextInput,
+	TouchableOpacity,
+	Alert
+} from 'react-native'
 
 export const TodoForm = ({ list, setList }) => {
 	const [todoItem, setTodoItem] = useState('');
 
 	const addItemHandler = () => {
+		if (todoItem.length <= 2) {
+			return Alert.alert('EITA!', 'Número mínimo de caracteres é 3', [{
+				text: 'Belê',
+				onPress: () => console.log('Fechar alerta')
+			}])
+		}
 		return new Promise((resolve, reject) => {
 			setList([...list, {
 				id: list.length + 1,
