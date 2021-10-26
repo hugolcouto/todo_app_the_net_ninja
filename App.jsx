@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { Header, TodoItem, TodoForm } from './components';
+import { Header, TodoItem, TodoForm, Sandbox } from './components';
 
 export default function App() {
 	const [list, setList] = useState([
@@ -23,6 +23,7 @@ export default function App() {
 	}
 
 	return (
+		// <Sandbox />
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 			<View style={styles.container}>
 				<Header title="Todo app" />
@@ -53,11 +54,11 @@ const styles = StyleSheet.create({
 		paddingTop: 30,
 	},
 	content: {
-		marginTop: 30,
-		paddingTop: 0,
-		paddingHorizontal: 20
+		paddingVertical: 30,
+		paddingHorizontal: 20,
+		flex: 1
 	},
 	list: {
-		// 
+		flex: 1,
 	}
 });

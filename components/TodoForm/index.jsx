@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
 	View,
 	Text,
@@ -6,7 +6,8 @@ import {
 	TextInput,
 	TouchableOpacity,
 	Alert
-} from 'react-native'
+} from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export const TodoForm = ({ list, setList }) => {
 	const [todoItem, setTodoItem] = useState('');
@@ -38,7 +39,8 @@ export const TodoForm = ({ list, setList }) => {
 				value={todoItem}
 			/>
 			<TouchableOpacity style={styles.button} onPress={addItemHandler}>
-				<Text style={styles.label}>Adicionar &#x2b;</Text>
+				<Text style={styles.label}>Adicionar</Text>
+				<MaterialIcons name="add" size={24} color="white" />
 			</TouchableOpacity>
 		</View>
 	)
@@ -64,11 +66,13 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		marginTop: 10,
 		elevation: 1,
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		flexDirection: 'row',
+		padding: 10,
 	},
 	label: {
 		color: '#fff',
-		paddingVertical: 10,
-		paddingHorizontal: 20,
 		textAlign: 'center',
 	}
 })
